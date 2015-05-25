@@ -2,4 +2,8 @@
 
 采用 [Ransack](https://github.com/activerecord-hackery/ransack) 进行组合查询测试。
 
-[参考地址](http://ruby-rails.hatenadiary.com/entry/20141008/1412774436)
+# 主要应用的 Gem
+* ransack
+* bootstrap-sass
+
+
