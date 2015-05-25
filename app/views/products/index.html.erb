@@ -1,37 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<h1>产品列表</h1>
+<h2>产品列表</h2>
 
-<%= search_form_for @q do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+      请输入查询条件
+    </a>
+  </div>
+  <div id="collapseOne" class="panel-collapse collapse ">
+  <div class="panel-body">
+    <%= search_form_for @q do |f| %>
 
-  <%= f.label :name_start, "产品名称" %>
-  <%= f.search_field :name_start %>
-  <br />
+      <div class="form-group">
+        <%= f.label :name_start, "产品名称", class:"col-sm-1 control-label" %>
+        <div class="col-sm-5">
+          <%= f.search_field :name_start, class:"form-control", placeholder: "输入首字符" %>
+        </div>
 
-  <%= f.label :description_cont, "产品说明" %>
-  <%= f.search_field :description_cont %>
-  <br />
+        <%= f.label :description_cont, "产品说明", class:"col-sm-1 control-label" %>
+        <div class="col-sm-5">
+          <%= f.search_field :description_cont, class: "form-control", placeholder: "输入包含文字" %>
+        </div>
+      </div>
 
-  <%= f.label :carrier_name_cont, "运营商" %>
-  <%= f.search_field :carrier_name_cont %>
-  <br />
+      <div class="form-group">
+        <%= f.label :carrier_name_cont, "运营厂商", class:"col-sm-1 control-label" %>
+        <div class="col-sm-5">
+          <%= f.search_field :carrier_name_cont, class: "form-control", placeholder:"输入包含文字" %>
+        </div>
+        <%= f.label :price_lt, "金额", class:"col-sm-1 control-label"  %>
+        <div class="col-sm-5">
+          <%= f.search_field :price_lt, class:"form-control", placeholder:"请输入小于金额数" %>
+        </div>
+      </div>
 
-  <%= f.label :price_lt, "金额（以下）" %>
-  <%= f.search_field :price_lt %>
-  <br />
+      <div class="form-group">
+        <%= f.label :name_or_description_cont, "说明", class:"col-sm-1 control-label" %>
+        <div class="col-sm-11">
+          <%= f.search_field :name_or_description_cont, class:"form-control", placeholder:"请输入包含文字" %>
+        </div>
+      </div>
 
-  <%= f.label :name_or_description_cont, "说明" %>
-  <%= f.search_field :name_or_description_cont %>
-  <br />  
+      <div class="form-group">
+          <%= f.submit "查 询", class: "btn btn-success btn-sm"  %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>
 
-  <%= f.submit %>
-
-
-<% end %>
-
-
-<div class="well">
-  <%= link_to "新建产品", new_product_path, remote: true, class: "btn btn-primary" %>
+<div class="well well-sm">
+  <%= link_to "查    询", products_path, remote: true, class: "btn btn-primary btn-sm" %>
+  <%= link_to "新建产品", new_product_path, remote: true, class: "btn btn-primary btn-sm" %>
 </div>
 
 <table class="table table-bordered table-striped">
