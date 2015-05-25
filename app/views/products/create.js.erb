@@ -1,0 +1,5 @@
+
+$('#dialog').modal('toggle');
+
+console.log("start append new record - <% @product.name %>.")
+$('#products').append('<%= j render(@product) %>')
